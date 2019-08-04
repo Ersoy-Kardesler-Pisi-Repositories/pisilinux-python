@@ -47,13 +47,17 @@ static PyMethodDef capslock_methods[] = {
     {NULL, NULL}
 };
 
+static struct PyModuleDef moduledef = {
+    PyModuleDef_HEAD_INIT,
+    "capslock",     /* m_name */
+    "",                /* m_doc */
+    -1,                  /* m_size */
+    capslock_methods,             /* m_methods */
+};
+
 PyMODINIT_FUNC
-initcapslock(void)
+PyInit_capslock(void)
 {
-    PyObject *m;
-
-    m = Py_InitModule("capslock", capslock_methods);
-
-    return;
+	return PyModule_Create(&moduledef);
 }
 

@@ -93,17 +93,22 @@ csapi_changeroute(PyObject *self, PyObject *args)
 
 
 static PyMethodDef methods[] = {
-	{ "atoi", csapi_atoi, METH_VARARGS,
-		"Convert a string into an integer." },
-	{ "settimeofday", csapi_settimeofday, METH_VARARGS,
-		"Set system date." },
-	{ "changeroute", csapi_changeroute, METH_VARARGS,
-		"Change the route table."},
+	{ "atoi", csapi_atoi, METH_VARARGS, "Convert a string into an integer." },
+	{ "settimeofday", csapi_settimeofday, METH_VARARGS, "Set system date." },
+	{ "changeroute", csapi_changeroute, METH_VARARGS, "Change the route table."},
 	{ NULL, NULL, 0, NULL }
 };
 
+static struct PyModuleDef moduledef = {
+    PyModuleDef_HEAD_INIT,
+    "csapi",     /* m_name */
+    "",                /* m_doc */
+    -1,                  /* m_size */
+    methods,             /* m_methods */
+};
+
 PyMODINIT_FUNC
-initcsapi(void)
+PyInit_csapi(void)
 {
-	Py_InitModule("csapi", methods);
+	return PyModule_Create(&moduledef);
 }

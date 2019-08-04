@@ -10,7 +10,7 @@
 # Please read the COPYING file.
 #
 
-__version__ = "0.4.8"
+__version__ = "1.0a1"
 
 __all__ = ["csapi",
            "deviceutils",
