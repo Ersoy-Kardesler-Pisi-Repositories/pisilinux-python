@@ -1,4 +1,4 @@
-#!/bin7sh
+#!/bin/sh
 python tools/pygettext.py -o po/pardus-python.pot pardus
 for lang in po/*.po
 do
